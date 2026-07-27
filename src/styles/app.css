@@ -1,0 +1,208 @@
+@import './marketing.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --bg-base: #090909;
+        --bg-elevated: #111111;
+        --bg-elevated-2: #161616;
+        --bg-active: rgba(255, 255, 255, 0.06);
+        --bg-hover: rgba(255, 255, 255, 0.03);
+        --border-subtle: rgba(255, 255, 255, 0.06);
+        --text-primary: #ffffff;
+        --text-secondary: #9ca3af;
+        --text-tertiary: #6b7280;
+        --accent-green: #22c55e;
+        --accent-red: #ef4444;
+        --accent-amber: #f59e0b;
+        --accent-blue: rgba(59, 130, 246, 0.15);
+        --radius-sm: 8px;
+        --radius-md: 12px;
+        --radius-lg: 16px;
+        --radius-xl: 20px;
+        --radius-pill: 999px;
+        --shadow-soft: 0 1px 2px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.04);
+        --shadow-button: 0 1px 2px rgba(0, 0, 0, 0.5);
+    }
+
+    .light {
+        --bg-base: #fafafa;
+        --bg-elevated: #ffffff;
+        --bg-elevated-2: #f5f5f5;
+        --bg-active: rgba(0, 0, 0, 0.05);
+        --bg-hover: rgba(0, 0, 0, 0.03);
+        --border-subtle: rgba(0, 0, 0, 0.08);
+        --text-primary: #0a0a0a;
+        --text-secondary: #525252;
+        --text-tertiary: #737373;
+        --accent-green: #16a34a;
+        --accent-red: #dc2626;
+        --accent-amber: #d97706;
+        --accent-blue: rgba(59, 130, 246, 0.1);
+        --shadow-soft: 0 1px 2px rgba(0, 0, 0, 0.05);
+        --shadow-button: 0 1px 2px rgba(0, 0, 0, 0.08);
+    }
+
+    * {
+        border-color: var(--border-subtle);
+    }
+
+    body {
+        @apply bg-bg-base font-sans text-text-primary antialiased;
+        font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+    }
+}
+
+@layer components {
+    .surface-card {
+        @apply rounded-xl border border-border-subtle bg-bg-elevated transition-colors duration-200;
+        box-shadow: var(--shadow-soft);
+    }
+
+    .surface-card-hover {
+        @apply surface-card hover:bg-bg-hover;
+    }
+
+    .page-title {
+        @apply text-3xl font-medium tracking-tight text-text-primary;
+    }
+
+    .page-description {
+        @apply mt-2 text-base text-text-secondary;
+    }
+
+    .section-label {
+        @apply text-sm font-medium text-text-secondary;
+    }
+
+    .field-label {
+        @apply text-sm font-medium text-text-secondary;
+    }
+
+    .animate-fade-in {
+        animation: fadeIn 0.3s ease-out;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(4px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .docs-prose {
+        @apply text-text-primary leading-relaxed;
+    }
+
+    .docs-prose h1 {
+        @apply mb-4 mt-8 text-3xl font-semibold tracking-tight first:mt-0;
+    }
+
+    .docs-prose h2 {
+        @apply mb-3 mt-10 scroll-mt-24 border-b border-border-subtle pb-2 text-xl font-semibold tracking-tight;
+    }
+
+    .docs-prose h3 {
+        @apply mb-2 mt-6 scroll-mt-24 text-lg font-medium;
+    }
+
+    .docs-prose h4 {
+        @apply mb-2 mt-4 scroll-mt-24 text-base font-medium;
+    }
+
+    .docs-prose p {
+        @apply mb-4 text-text-secondary;
+    }
+
+    .docs-prose ul,
+    .docs-prose ol {
+        @apply mb-4 ml-6 list-outside text-text-secondary;
+    }
+
+    .docs-prose ul {
+        @apply list-disc;
+    }
+
+    .docs-prose ol {
+        @apply list-decimal;
+    }
+
+    .docs-prose li {
+        @apply mb-1;
+    }
+
+    .docs-prose a {
+        @apply text-text-primary underline decoration-border-subtle underline-offset-4 hover:decoration-text-primary;
+    }
+
+    .docs-prose blockquote {
+        @apply my-4 border-l-2 border-border-subtle pl-4 text-text-secondary;
+    }
+
+    .docs-prose table {
+        @apply mb-6 w-full border-collapse text-sm;
+    }
+
+    .docs-prose th {
+        @apply border border-border-subtle bg-bg-elevated px-3 py-2 text-left font-medium;
+    }
+
+    .docs-prose td {
+        @apply border border-border-subtle px-3 py-2 text-text-secondary;
+    }
+
+    .docs-prose hr {
+        @apply my-8 border-border-subtle;
+    }
+
+    .docs-prose strong {
+        @apply font-semibold text-text-primary;
+    }
+
+    .docs-prose code:not(pre code) {
+        @apply rounded bg-bg-elevated-2 px-1.5 py-0.5 font-mono text-sm text-text-primary;
+    }
+}
+
+/* TipTap editor */
+.tiptap p.is-editor-empty:first-child::before {
+  color: rgb(113 113 122);
+  content: attr(data-placeholder);
+  float: left;
+  height: 0;
+  pointer-events: none;
+}
+.tiptap:focus {
+  outline: none;
+}
+
+/* Email Studio: TipTap + variable chips + ProseMirror */
+.ProseMirror {
+  outline: none;
+  min-height: 1.25em;
+}
+.ProseMirror .mm-var-chip,
+span.mm-var-chip,
+span[data-variable] {
+  display: inline-flex;
+  align-items: center;
+  margin: 0 2px;
+  padding: 1px 7px;
+  border-radius: 6px;
+  border: 1px solid rgba(59, 130, 246, 0.45);
+  background: rgba(59, 130, 246, 0.12);
+  color: #2563eb;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.4;
+  vertical-align: baseline;
+  white-space: nowrap;
+  user-select: none;
+}

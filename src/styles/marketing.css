@@ -1,0 +1,329 @@
+@layer components {
+    .marketing-page {
+        @apply min-h-screen overflow-x-hidden bg-[#090909] antialiased;
+        color: #ffffff;
+    }
+
+    .font-display {
+        font-family: 'Instrument Serif', Georgia, serif;
+    }
+
+    .marketing-gradient-hero {
+        background:
+            radial-gradient(ellipse 80% 50% at 50% -20%, rgba(120, 119, 198, 0.15), transparent),
+            radial-gradient(ellipse 60% 40% at 100% 0%, rgba(234, 179, 8, 0.08), transparent),
+            #090909;
+    }
+
+    .marketing-gradient-glow {
+        background: radial-gradient(circle at center, rgba(255, 255, 255, 0.06) 0%, transparent 70%);
+    }
+
+    .marketing-card {
+        @apply rounded-2xl border border-white/[0.06] bg-[#111111] shadow-[0_0_0_1px_rgba(255,255,255,0.03)];
+    }
+
+    .marketing-card-hover {
+        @apply marketing-card transition-all duration-300 hover:border-white/10 hover:bg-[#141414];
+    }
+
+    .marketing-eyebrow {
+        @apply inline-flex items-center rounded-full border border-white/10 bg-white/[0.03] px-3 py-1 text-sm text-zinc-400;
+    }
+
+    .trusted-by-card {
+        background: #090909;
+    }
+
+    .trusted-by-glow {
+        background: radial-gradient(ellipse 60% 100% at 50% 0%, rgba(255, 255, 255, 0.06) 0%, transparent 70%);
+    }
+
+    .trusted-logo {
+        @apply select-none transition-opacity duration-300 hover:text-white;
+    }
+
+    .trusted-technologies-glow {
+        background: radial-gradient(ellipse 70% 80% at 50% 0%, rgba(255, 255, 255, 0.07) 0%, transparent 70%);
+    }
+
+    .trusted-technologies-vignette {
+        background: radial-gradient(ellipse at center, transparent 40%, rgba(0, 0, 0, 0.55) 100%);
+    }
+
+    .trusted-technologies-noise {
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+        background-size: 180px 180px;
+        mix-blend-mode: overlay;
+    }
+
+    .marketing-grid-bg {
+        background-image:
+            linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        background-size: 64px 64px;
+        mask-image: radial-gradient(ellipse at center, black 20%, transparent 70%);
+    }
+
+    .integration-icon-wrap {
+        @apply relative flex h-24 w-24 items-center justify-center;
+    }
+
+    .integration-icon-glow {
+        @apply absolute inset-0 rounded-[28px];
+        background: radial-gradient(circle, rgba(249, 115, 22, 0.35) 0%, transparent 70%);
+        filter: blur(16px);
+    }
+
+    .integration-icon-surface {
+        @apply relative flex h-20 w-20 items-center justify-center rounded-[22px] border border-white/10;
+        background: linear-gradient(145deg, #2a2a2a 0%, #111111 50%, #0a0a0a 100%);
+        box-shadow:
+            inset 0 1px 0 rgba(255, 255, 255, 0.1),
+            0 8px 32px rgba(0, 0, 0, 0.5),
+            0 0 0 1px rgba(249, 115, 22, 0.15);
+    }
+
+    .integration-lang-icon {
+        @apply flex h-11 w-11 items-center justify-center rounded-xl border border-white/[0.08] bg-white/[0.02] text-zinc-500 transition-all duration-200;
+    }
+
+    .integration-lang-icon--active {
+        @apply border-amber-500/50 text-white;
+        box-shadow: 0 0 20px rgba(249, 115, 22, 0.2);
+        background: rgba(249, 115, 22, 0.06);
+    }
+
+    .integration-editor {
+        @apply rounded-2xl border border-white/[0.08] bg-[#0c0c0c];
+        box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.03);
+    }
+
+    .integration-fw-tab {
+        @apply inline-flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-xs text-zinc-500 transition-all hover:text-zinc-300;
+    }
+
+    .integration-fw-tab--active {
+        @apply border border-amber-500/40 text-white;
+        background: rgba(249, 115, 22, 0.06);
+    }
+
+    .integration-fw-icon {
+        @apply flex h-4 w-4 items-center justify-center rounded text-[8px] font-bold text-zinc-400;
+    }
+
+    .integration-fw-tab--active .integration-fw-icon {
+        @apply text-amber-400;
+    }
+
+    .browser-mockup {
+        @apply rounded-2xl border border-white/[0.08] bg-[#0c0c0c];
+        box-shadow:
+            0 0 0 1px rgba(255, 255, 255, 0.03),
+            0 24px 80px rgba(0, 0, 0, 0.5),
+            0 0 120px rgba(120, 119, 198, 0.06);
+    }
+
+    .browser-mockup-content {
+        @apply overflow-hidden;
+    }
+
+    .hero-orb {
+        border-radius: 50%;
+        filter: blur(80px);
+        opacity: 0.5;
+    }
+
+    .hero-orb--purple {
+        background: radial-gradient(circle, rgba(120, 119, 198, 0.25) 0%, transparent 70%);
+    }
+
+    .hero-orb--amber {
+        background: radial-gradient(circle, rgba(234, 179, 8, 0.15) 0%, transparent 70%);
+    }
+
+    .infra-node {
+        @apply rounded-2xl border border-white/[0.08] bg-[#111111];
+        box-shadow: 0 0 40px rgba(255, 255, 255, 0.02);
+    }
+
+    .glass-panel {
+        @apply rounded-2xl border border-white/[0.06] bg-white/[0.02] backdrop-blur-xl;
+    }
+
+    .metric-card {
+        @apply marketing-card p-6 text-center transition-all duration-300 hover:border-white/10;
+    }
+
+    .showcase-card {
+        @apply marketing-card overflow-hidden transition-all duration-300 hover:border-white/10 hover:shadow-[0_0_60px_rgba(255,255,255,0.03)];
+    }
+
+    .section-reveal {
+        @apply opacity-0 translate-y-6;
+    }
+
+    .marketing-section-alt {
+        background: linear-gradient(180deg, #0a0a0a 0%, #090909 100%);
+    }
+}
+
+/* Light mode — marketing site */
+.light .marketing-page {
+    background-color: #fafafa;
+    color: #18181b;
+}
+
+.light .marketing-gradient-hero {
+    background:
+        radial-gradient(ellipse 80% 50% at 50% -20%, rgba(120, 119, 198, 0.12), transparent),
+        radial-gradient(ellipse 60% 40% at 100% 0%, rgba(234, 179, 8, 0.06), transparent),
+        #fafafa;
+}
+
+.light .marketing-card {
+    border-color: rgba(0, 0, 0, 0.08);
+    background-color: #ffffff;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.04);
+}
+
+.light .marketing-card-hover:hover {
+    border-color: rgba(0, 0, 0, 0.15);
+    background-color: #fafafa;
+}
+
+.light .marketing-eyebrow {
+    border-color: rgba(0, 0, 0, 0.1);
+    background-color: rgba(0, 0, 0, 0.03);
+    color: #52525b;
+}
+
+.light .trusted-by-card {
+    background: #fafafa;
+}
+
+.light .trusted-by-glow {
+    background: radial-gradient(ellipse 60% 100% at 50% 0%, rgba(0, 0, 0, 0.04) 0%, transparent 70%);
+}
+
+.light .trusted-logo:hover {
+    color: #18181b;
+}
+
+.light .marketing-grid-bg {
+    background-image:
+        linear-gradient(rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+}
+
+.light .integration-lang-icon {
+    border-color: rgba(0, 0, 0, 0.08);
+    background-color: rgba(0, 0, 0, 0.02);
+    color: #71717a;
+}
+
+.light .integration-lang-icon--active {
+    color: #18181b;
+}
+
+.light .integration-editor {
+    border-color: rgba(0, 0, 0, 0.08);
+    background-color: #ffffff;
+}
+
+.light .integration-fw-tab {
+    color: #71717a;
+}
+
+.light .integration-fw-tab:hover {
+    color: #27272a;
+}
+
+.light .integration-fw-tab--active {
+    color: #18181b;
+}
+
+.light .browser-mockup {
+    border-color: rgba(0, 0, 0, 0.1);
+    background-color: #0c0c0c;
+    box-shadow:
+        0 0 0 1px rgba(0, 0, 0, 0.06),
+        0 24px 80px rgba(0, 0, 0, 0.12),
+        0 0 120px rgba(120, 119, 198, 0.08);
+}
+
+.light .hero-orb--purple {
+    background: radial-gradient(circle, rgba(120, 119, 198, 0.18) 0%, transparent 70%);
+}
+
+.light .hero-orb--amber {
+    background: radial-gradient(circle, rgba(234, 179, 8, 0.12) 0%, transparent 70%);
+}
+
+.light .infra-node {
+    border-color: rgba(0, 0, 0, 0.08);
+    background-color: #ffffff;
+}
+
+.light .glass-panel {
+    border-color: rgba(0, 0, 0, 0.06);
+    background-color: rgba(0, 0, 0, 0.02);
+}
+
+.light .metric-card:hover {
+    border-color: rgba(0, 0, 0, 0.15);
+}
+
+.light .showcase-card:hover {
+    border-color: rgba(0, 0, 0, 0.15);
+    box-shadow: 0 0 60px rgba(0, 0, 0, 0.04);
+}
+
+.light .marketing-section-alt {
+    background: linear-gradient(180deg, #f4f4f5 0%, #fafafa 100%);
+}
+
+/* Remap common dark utility colors on marketing pages (exclude product mockups) */
+.light .marketing-page :is(
+    .bg-\[\#090909\],
+    .bg-\[\#0a0a0a\],
+    .bg-\[\#111111\]
+):not(.browser-mockup *):not(.feature-preview):not(.feature-preview *) {
+    background-color: #f4f4f5 !important;
+}
+
+.light .marketing-page .text-white:not(.browser-mockup *):not(.feature-preview *):not(.integration-editor *) {
+    color: #0a0a0a !important;
+}
+
+.light .marketing-page .text-zinc-200:not(.browser-mockup *):not(.feature-preview *) {
+    color: #27272a !important;
+}
+
+.light .marketing-page .text-zinc-500:not(.browser-mockup *):not(.feature-preview *) {
+    color: #71717a !important;
+}
+
+.light .marketing-page .bg-black:not(.browser-mockup *):not(.feature-preview *) {
+    background-color: #fafafa !important;
+}
+
+.light .marketing-page .text-zinc-300:not(.browser-mockup *):not(.feature-preview *) {
+    color: #3f3f46 !important;
+}
+
+.light .marketing-page .text-zinc-400:not(.browser-mockup *):not(.feature-preview *) {
+    color: #52525b !important;
+}
+
+.light .marketing-page .border-white\/\[0\.06\]:not(.browser-mockup *):not(.feature-preview *),
+.light .marketing-page .border-white\/\[0\.08\]:not(.browser-mockup *):not(.feature-preview *),
+.light .marketing-page .border-white\/\[0\.04\]:not(.browser-mockup *):not(.feature-preview *),
+.light .marketing-page .border-white\/10:not(.browser-mockup *):not(.feature-preview *),
+.light .marketing-page .border-\[\#1f1f1f\]:not(.browser-mockup *):not(.feature-preview *) {
+    border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+.light .marketing-page .divide-white\/\[0\.06\] > :not([hidden]) ~ :not([hidden]) {
+    border-color: rgba(0, 0, 0, 0.08);
+}
