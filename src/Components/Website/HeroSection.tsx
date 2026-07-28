@@ -1,6 +1,7 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from '@inertiajs/react';
-import { ChevronRight, Sparkles } from 'lucide-react';
+import { Check, ChevronRight, Copy, Sparkles } from 'lucide-react';
 import { Container } from '@/Components/Website/Container';
 import { FeaturePreview } from '@/Components/Website/FeaturePreview';
 import { BrowserMockup } from '@/Components/Website/BrowserMockup';
@@ -33,6 +34,52 @@ const fadeUp = {
     transition: { duration: 0.6 },
 };
 
+const reassurances = ['3,000 emails free every month', 'No credit card required', 'Sending in under 10 minutes'];
+
+const INSTALL_COMMAND = 'npm i @mailermine/node';
+
+function InstallCommand({ isLight }: { isLight: boolean }) {
+    const [copied, setCopied] = useState(false);
+
+    const copy = async () => {
+        try {
+            await navigator.clipboard.writeText(INSTALL_COMMAND);
+            setCopied(true);
+            setTimeout(() => setCopied(false), 2000);
+        } catch {
+            // Clipboard is unavailable outside secure contexts; the command stays selectable.
+        }
+    };
+
+    return (
+        <button
+            type="button"
+            onClick={copy}
+            aria-label={`Copy install command: ${INSTALL_COMMAND}`}
+            className={cn(
+                'group inline-flex items-center gap-3 rounded-full border px-4 py-2 font-mono text-[13px] transition-colors',
+                isLight
+                    ? 'border-black/10 bg-black/[0.03] text-zinc-700 hover:bg-black/[0.06]'
+                    : 'border-white/10 bg-white/[0.03] text-zinc-300 hover:bg-white/[0.06]',
+            )}
+        >
+            <span className={isLight ? 'text-zinc-400' : 'text-zinc-600'}>$</span>
+            {INSTALL_COMMAND}
+            {copied ? (
+                <Check className="h-3.5 w-3.5 text-emerald-400" aria-hidden />
+            ) : (
+                <Copy
+                    className={cn(
+                        'h-3.5 w-3.5 transition-colors',
+                        isLight ? 'text-zinc-400 group-hover:text-zinc-600' : 'text-zinc-600 group-hover:text-zinc-300',
+                    )}
+                    aria-hidden
+                />
+            )}
+        </button>
+    );
+}
+
 export function HeroSection() {
     const { theme } = useTheme();
     const isLight = theme === 'light';
@@ -45,7 +92,7 @@ export function HeroSection() {
             <div className="hero-orb hero-orb--amber pointer-events-none absolute -right-24 top-40 h-80 w-80" aria-hidden />
 
             <Container className="relative">
-                <motion.div {...fadeUp} className="mx-auto max-w-4xl text-center">
+                <motion.div {...fadeUp} className="mx-auto max-w-5xl text-center">
                     <motion.div
                         initial={{ opacity: 0, y: -14, scale: 0.88 }}
                         animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -84,7 +131,7 @@ export function HeroSection() {
                                         )}
                                         aria-hidden
                                     />
-                                    Powered by AI
+                                    New: AI Campaign Analyzer
                                     <ChevronRight
                                         className="h-3.5 w-3.5 text-zinc-500 transition-transform group-hover:translate-x-0.5 group-hover:text-zinc-300"
                                         aria-hidden
@@ -94,36 +141,60 @@ export function HeroSection() {
                         </Link>
                     </motion.div>
 
-                    <p className="marketing-eyebrow mb-8">Developer-first email infrastructure</p>
-                    <h1 className="font-display text-4xl leading-[1.05] tracking-tight sm:text-5xl md:text-6xl lg:text-[5.25rem]">
-                        Email infrastructure built for modern businesses
+                    <h1 className="font-display text-[2.5rem] leading-[1.06] tracking-[-0.015em] [text-wrap:balance] sm:text-5xl md:text-6xl lg:text-[4.5rem]">
+                        Transactional and marketing email, one API
                     </h1>
-                    <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-zinc-400 sm:mt-8 sm:text-lg md:text-xl">
-                        Send transactional and marketing email with a single API. Track delivery, opens, and clicks. Scale from prototype to production.
+                    <p
+                        className={cn(
+                            'mx-auto mt-6 max-w-2xl text-base leading-relaxed sm:mt-8 sm:text-lg md:text-xl',
+                            isLight ? 'text-zinc-600' : 'text-zinc-400',
+                        )}
+                    >
+                        Send password resets and product launches from the same platform, on the same sending
+                        reputation. Clean REST API, SDKs for every major language, and real-time delivery events.
                     </p>
-                    <div className="mt-10 flex flex-col items-center gap-5 sm:mt-12">
-                        <Link
-                            href="/signup"
+                    <div className="mt-10 flex flex-col items-center gap-6 sm:mt-12">
+                        <div className="flex flex-col items-center gap-4 sm:flex-row">
+                            <Link
+                                href="/signup"
+                                className={cn(
+                                    'inline-flex h-12 min-w-[200px] items-center justify-center rounded-full px-10 text-[15px] font-medium transition-colors',
+                                    isLight
+                                        ? 'bg-zinc-900 text-white shadow-[0_1px_2px_rgba(0,0,0,0.18)] hover:bg-zinc-800'
+                                        : 'bg-white text-[#090909] shadow-[0_1px_2px_rgba(0,0,0,0.5)] hover:bg-zinc-100',
+                                )}
+                            >
+                                Start sending free
+                            </Link>
+                            <Link
+                                href="/docs"
+                                className={cn(
+                                    'inline-flex h-12 items-center justify-center gap-1.5 rounded-full border px-7 text-[15px] font-medium transition-colors',
+                                    isLight
+                                        ? 'border-black/10 text-zinc-900 hover:bg-black/[0.04]'
+                                        : 'border-white/10 text-white hover:bg-white/[0.05]',
+                                )}
+                            >
+                                Read the docs
+                                <ChevronRight className="h-4 w-4" aria-hidden />
+                            </Link>
+                        </div>
+
+                        <ul
                             className={cn(
-                                'inline-flex h-12 min-w-[180px] items-center justify-center rounded-full px-10 text-[15px] font-medium transition-colors',
-                                isLight
-                                    ? 'border border-black/10 bg-zinc-900 text-[#fff] hover:bg-zinc-800'
-                                    : 'border border-white/15 bg-gradient-to-b from-white/[0.09] to-white/[0.02] text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] hover:from-white/[0.14] hover:to-white/[0.04]',
+                                'flex flex-col items-center gap-x-6 gap-y-2 text-[13px] sm:flex-row',
+                                isLight ? 'text-zinc-600' : 'text-zinc-500',
                             )}
                         >
-                            Get started
-                        </Link>
-                        <Link
-                            href="/docs"
-                            className={cn(
-                                'text-[15px] font-medium transition-colors',
-                                isLight
-                                    ? 'text-zinc-900 hover:text-zinc-600'
-                                    : 'text-white hover:text-zinc-300',
-                            )}
-                        >
-                            Documentation
-                        </Link>
+                            {reassurances.map((item) => (
+                                <li key={item} className="flex items-center gap-2">
+                                    <Check className="h-3.5 w-3.5 shrink-0 text-emerald-400" aria-hidden />
+                                    {item}
+                                </li>
+                            ))}
+                        </ul>
+
+                        <InstallCommand isLight={isLight} />
                     </div>
                 </motion.div>
 

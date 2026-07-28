@@ -353,11 +353,224 @@ export const flowSteps = [
 
 export const sdks = ['PHP', 'Laravel', 'Node.js', 'TypeScript', 'Python', 'Go', 'Java', 'cURL'];
 
-export const testimonials = [
-    { quote: 'MailerMine replaced three tools for us. The API is exactly what we wanted — simple, predictable, and fast.', author: 'Sarah Chen', role: 'CTO, Launchpad', company: 'Launchpad' },
-    { quote: 'We migrated from SendGrid in a weekend. The docs are exceptional and the dashboard is beautiful.', author: 'Marcus Webb', role: 'Lead Engineer, Stackform', company: 'Stackform' },
-    { quote: 'Finally an email platform that feels built for developers, not marketers pretending to be developers.', author: 'Alex Rivera', role: 'Founder, DevMail', company: 'DevMail' },
+export const quickstartSteps = [
+    {
+        step: '01',
+        title: 'Verify your domain',
+        description: 'Paste three DNS records. We check SPF, DKIM, and DMARC and tell you the moment they resolve.',
+        meta: '~2 minutes',
+    },
+    {
+        step: '02',
+        title: 'Create an API key',
+        description: 'Project-scoped test and production keys, so nothing you try locally can touch real recipients.',
+        meta: '~30 seconds',
+    },
+    {
+        step: '03',
+        title: 'Send your first email',
+        description: 'One POST request, or a single call through the SDK for your language. Same payload either way.',
+        meta: '~1 minute',
+    },
+    {
+        step: '04',
+        title: 'Watch the events land',
+        description: 'Delivery, opens, clicks, and bounces stream into the dashboard and your webhook endpoint in real time.',
+        meta: 'Instant',
+    },
 ];
+
+export const trustSignals = [
+    {
+        icon: 'ShieldCheck',
+        title: 'Authenticated on every send',
+        description: 'Guided SPF, DKIM, and DMARC setup with continuous domain verification, so your mail is signed correctly every time.',
+    },
+    {
+        icon: 'Lock',
+        title: 'HMAC-signed webhooks',
+        description: 'Every event is signed and retried with automatic backoff, and you can replay any failed delivery from the dashboard.',
+    },
+    {
+        icon: 'Filter',
+        title: 'Automatic suppression',
+        description: 'Bounces and complaints are suppressed for you, which protects your sending reputation without any extra code.',
+    },
+    {
+        icon: 'Key',
+        title: 'Scoped, rotatable keys',
+        description: 'Separate test and production keys per project, rotated without downtime and tracked with last-used timestamps.',
+    },
+];
+
+/**
+ * Tabs for the animated product showcase. `preview` maps to a FeaturePreview
+ * type and the grouping mirrors the dashboard's own sidebar so the landing page
+ * and the product describe the same surface in the same order.
+ */
+export const showcaseFeatures = [
+    {
+        id: 'transactional',
+        group: 'Core',
+        label: 'Transactional',
+        title: 'Every message, fully traceable',
+        description: 'Send receipts, password resets, and alerts through one REST call, then inspect any message down to its individual delivery events.',
+        preview: 'transactional',
+        highlights: ['Idempotent sends with request IDs', 'Per-message event timeline', 'Searchable logs across projects'],
+    },
+    {
+        id: 'campaigns',
+        group: 'Marketing',
+        label: 'Campaigns',
+        title: 'Broadcasts without a second vendor',
+        description: 'A four-step builder takes you from audience to schedule to review, sending on the same authenticated pipeline as your transactional mail.',
+        preview: 'campaigns',
+        highlights: ['Audience, design, schedule, review', 'Live recipient counts', 'Drafts and scheduled sends'],
+    },
+    {
+        id: 'ai-campaign',
+        group: 'AI',
+        label: 'AI Analyzer',
+        title: 'Catch problems before you hit send',
+        description: 'Every campaign is scored for deliverability, spam risk, and CTA strength, with predicted open and click rates and specific fixes to apply.',
+        preview: 'ai-campaign',
+        highlights: ['Overall score with category breakdown', 'Predicted inbox placement', 'Concrete, applyable suggestions'],
+    },
+    {
+        id: 'ai-templates',
+        group: 'AI',
+        label: 'AI Studio',
+        title: 'From prompt to production email',
+        description: 'Describe the email you need and get a full layout with copy, CTAs, and variables, then refine tone and subject lines in the studio.',
+        preview: 'ai-templates',
+        highlights: ['Prompt-to-email generation', 'Improve drafts and subject lines', 'Editable blocks with template scoring'],
+    },
+    {
+        id: 'contacts',
+        group: 'Marketing',
+        label: 'Contacts',
+        title: 'Import at scale without cleanup work',
+        description: 'CSV and XLSX imports with field mapping and duplicate handling, plus custom fields and tags that stay queryable as your list grows.',
+        preview: 'contacts',
+        highlights: ['CSV and XLSX field mapping', 'Custom fields and tags', 'Suppression handled automatically'],
+    },
+    {
+        id: 'audiences',
+        group: 'Marketing',
+        label: 'Audiences',
+        title: 'Segments that update themselves',
+        description: 'Build static lists or dynamic segments whose membership recalculates as contact data changes, with live counts as you edit rules.',
+        preview: 'audiences',
+        highlights: ['Static lists and dynamic segments', 'Live counts while editing rules', 'Reusable across campaigns'],
+    },
+    {
+        id: 'templates',
+        group: 'Core',
+        label: 'Templates',
+        title: 'One template library for everything',
+        description: 'Reusable HTML and text templates with auto-detected variables, desktop and mobile preview, and test sends to any inbox.',
+        preview: 'templates',
+        highlights: ['Variables with auto-detection', 'Desktop and mobile preview', 'Test send before release'],
+    },
+    {
+        id: 'webhooks',
+        group: 'Core',
+        label: 'Webhooks',
+        title: 'Events you can actually trust',
+        description: 'HMAC-signed events for every state change, retried with backoff, and replayable from the dashboard when your endpoint was down.',
+        preview: 'webhooks',
+        highlights: ['HMAC-signed payloads', 'Automatic retries with backoff', 'Replay failed deliveries'],
+    },
+    {
+        id: 'analytics',
+        group: 'Core',
+        label: 'Analytics',
+        title: 'One view across both send types',
+        description: 'Delivery, opens, clicks, and bounces in real time, broken down per campaign and per domain instead of split across two dashboards.',
+        preview: 'analytics',
+        highlights: ['Real-time engagement metrics', 'Per-campaign breakdowns', 'Export-ready event history'],
+    },
+    {
+        id: 'domains',
+        group: 'Platform',
+        label: 'Domains',
+        title: 'DNS setup that tells you what is wrong',
+        description: 'Guided SPF, DKIM, and DMARC records with continuous verification and domain health signals, across multiple sending domains per project.',
+        preview: 'domains',
+        highlights: ['Guided SPF, DKIM, DMARC', 'Continuous verification', 'Health and reputation signals'],
+    },
+    {
+        id: 'apikeys',
+        group: 'Platform',
+        label: 'API Keys',
+        title: 'Test keys that cannot email customers',
+        description: 'Project-scoped production and test keys with rotation that never drops a send, plus usage tracking and last-used timestamps.',
+        preview: 'apikeys',
+        highlights: ['Separate test and production keys', 'Rotation without downtime', 'Usage and last-used tracking'],
+    },
+];
+
+export const moatPillars = [
+    {
+        icon: 'Layers',
+        title: 'Transactional and marketing on one pipeline',
+        description: 'Competing products pick a side: an API for developers, or a campaign tool for marketers. Running both on one pipeline means a single sending reputation, one suppression list, and analytics that actually reconcile.',
+        proof: 'One bill, one reputation, one event stream',
+    },
+    {
+        icon: 'Sparkles',
+        title: 'AI that reviews the send, not just writes it',
+        description: 'Generating email copy is now commodity. Scoring a campaign for deliverability, spam risk, and predicted engagement before it goes out is the part that protects your domain and your numbers.',
+        proof: 'Pre-send scoring with applyable fixes',
+    },
+    {
+        icon: 'Gauge',
+        title: 'Built to be integrated in an afternoon',
+        description: 'An OpenAPI spec, SDKs for every major language, HMAC-signed webhooks, and test keys that cannot reach real recipients. The integration is boring on purpose.',
+        proof: 'OpenAPI 3.1, SDKs, signed webhooks',
+    },
+    {
+        icon: 'Wallet',
+        title: 'Pricing that does not punish growth',
+        description: 'Volume tiers with a genuinely usable free plan, so you can prototype, launch, and scale on the same integration without a pricing conversation at every step.',
+        proof: 'Free through 3,000 emails a month',
+    },
+];
+
+export const stackConsolidation = {
+    before: {
+        label: 'The usual setup',
+        items: [
+            'A transactional provider for receipts and password resets',
+            'A separate marketing tool for campaigns and broadcasts',
+            'A third dashboard to stitch delivery and engagement data together',
+            'Two sending reputations, two suppression lists, two bills',
+        ],
+    },
+    after: {
+        label: 'With MailerMine',
+        items: [
+            'One API for transactional and marketing email',
+            'Campaigns, contacts, and segments on the same delivery pipeline',
+            'One event stream and one analytics view across everything you send',
+            'One reputation, one suppression list, one bill',
+        ],
+    },
+};
+
+export interface Testimonial {
+    quote: string;
+    author: string;
+    role: string;
+    company: string;
+}
+
+/**
+ * Real customer quotes only. Add an entry once the customer has agreed in
+ * writing to be quoted publicly. Sections that render testimonials hide
+ * themselves while this list is empty rather than showing placeholders.
+ */
+export const testimonials: Testimonial[] = [];
 
 export const whyMailerMineSections = [
     {
@@ -431,11 +644,14 @@ export const devExperienceFeatures = [
 ];
 
 export const faqItems = [
-    { question: 'How is MailerMine different from Resend or SendGrid?', answer: 'MailerMine combines transactional and marketing email in one platform — API sending, contacts, campaigns, templates, and analytics — so your team ships from a single developer-first product.' },
-    { question: 'Do you support SMTP?', answer: 'SMTP relay is on our roadmap. Today you can send via REST API, official SDKs, or the Laravel mail driver.' },
-    { question: 'Can I use my own domain?', answer: 'Absolutely. Verify your domain with SPF, DKIM, and DMARC records through the dashboard. MailerMine handles the DNS guidance and verification flow.' },
+    { question: 'Is there a free plan?', answer: 'Yes. The free plan includes 3,000 emails a month with API access, one domain, and the full dashboard. No credit card is required to start, and you only move to a paid plan when you outgrow it.' },
+    { question: 'How long does setup take?', answer: 'Most teams are sending in well under ten minutes: add three DNS records to verify your domain, generate an API key, then make a single API call. Delivery events start appearing in the dashboard immediately.' },
+    { question: 'How is MailerMine different from a transactional-only provider?', answer: 'MailerMine combines transactional and marketing email in one platform — API sending, contacts, campaigns, templates, and analytics — so you are not paying for two products, managing two sending reputations, or reconciling two sets of delivery data.' },
+    { question: 'Do you handle bounces and unsubscribes for me?', answer: 'Yes. Bounces and spam complaints are suppressed automatically, and suppression applies across both transactional and marketing sends so a hard bounce in one never gets retried by the other.' },
+    { question: 'Can I use my own domain?', answer: 'Absolutely. Verify your domain with SPF, DKIM, and DMARC records through the dashboard. MailerMine handles the DNS guidance and verification flow, and supports multiple sending domains per project.' },
     { question: 'Do you support marketing email?', answer: 'Yes. MailerMine includes contacts, audiences, segments, campaigns, templates, and analytics — all on the same delivery pipeline as transactional email.' },
-    { question: 'Can I migrate from Resend?', answer: 'Most teams migrate in a weekend. The API is familiar, and we provide migration guides for domains, templates, and webhook endpoints.' },
+    { question: 'Do you support SMTP?', answer: 'SMTP relay is on our roadmap. Today you can send via REST API, official SDKs, or the Laravel mail driver.' },
+    { question: 'How hard is it to migrate from my current provider?', answer: 'The API will look familiar if you are coming from a modern transactional provider, and we publish migration guides for domains, templates, and webhook endpoints. You can run MailerMine alongside your existing setup and move traffic over gradually rather than cutting over all at once.' },
 ];
 
 export const blogPosts = [

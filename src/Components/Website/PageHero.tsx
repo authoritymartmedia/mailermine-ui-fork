@@ -42,7 +42,7 @@ export function SectionHeader({ eyebrow, title, description, align = 'center' }:
     return (
         <div className={cn('mb-16 max-w-2xl', align === 'center' && 'mx-auto text-center')}>
             {eyebrow && <p className="marketing-eyebrow mb-4">{eyebrow}</p>}
-            <h2 className="font-display text-3xl tracking-tight sm:text-4xl lg:text-5xl">{title}</h2>
+            <h2 className="font-display text-3xl tracking-tight [text-wrap:balance] sm:text-4xl lg:text-5xl">{title}</h2>
             {description && (
                 <p className="mt-4 text-lg text-zinc-400">{description}</p>
             )}

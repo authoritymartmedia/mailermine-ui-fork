@@ -5,7 +5,8 @@
     }
 
     .font-display {
-        font-family: 'Instrument Serif', Georgia, serif;
+        font-family: 'Playfair Display', Georgia, serif;
+        font-weight: 400;
     }
 
     .marketing-gradient-hero {

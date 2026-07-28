@@ -74,22 +74,24 @@ export default function Customers({ seo }: CustomersProps) {
                 </Container>
             </Section>
 
-            <Section className="bg-[#0a0a0a]">
-                <Container>
-                    <h2 className="mb-12 text-center font-display text-3xl tracking-tight">What developers say</h2>
-                    <div className="grid gap-6 md:grid-cols-3">
-                        {testimonials.map((t) => (
-                            <blockquote key={t.author} className="marketing-card p-6">
-                                <p className="text-sm leading-relaxed text-zinc-300">&ldquo;{t.quote}&rdquo;</p>
-                                <footer className="mt-6">
-                                    <p className="text-sm font-medium">{t.author}</p>
-                                    <p className="text-xs text-zinc-500">{t.role}</p>
-                                </footer>
-                            </blockquote>
-                        ))}
-                    </div>
-                </Container>
-            </Section>
+            {testimonials.length > 0 && (
+                <Section className="bg-[#0a0a0a]">
+                    <Container>
+                        <h2 className="mb-12 text-center font-display text-3xl tracking-tight">What developers say</h2>
+                        <div className="grid gap-6 md:grid-cols-3">
+                            {testimonials.map((t) => (
+                                <blockquote key={t.author} className="marketing-card p-6">
+                                    <p className="text-sm leading-relaxed text-zinc-300">&ldquo;{t.quote}&rdquo;</p>
+                                    <footer className="mt-6">
+                                        <p className="text-sm font-medium">{t.author}</p>
+                                        <p className="text-xs text-zinc-500">{t.role}</p>
+                                    </footer>
+                                </blockquote>
+                            ))}
+                        </div>
+                    </Container>
+                </Section>
+            )}
 
             <Section>
                 <Container className="text-center">

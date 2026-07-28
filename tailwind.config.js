@@ -34,7 +34,7 @@ export default {
       },
       fontFamily: {
         sans: ['Inter', ...defaultTheme.fontFamily.sans],
-        serif: ['Instrument Serif', 'Georgia', ...defaultTheme.fontFamily.serif],
+        serif: ['Playfair Display', 'Georgia', ...defaultTheme.fontFamily.serif],
         mono: ['JetBrains Mono', 'SF Mono', ...defaultTheme.fontFamily.mono],
       },
       spacing: {
