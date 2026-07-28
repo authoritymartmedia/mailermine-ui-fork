@@ -576,7 +576,7 @@ export const whyMailerMineSections = [
     {
         eyebrow: 'Developer-first',
         title: 'One API for every email you send',
-        description: 'Transactional receipts, password resets, and product updates — all through a clean REST API with predictable responses and meaningful errors.',
+        description: 'Transactional receipts, password resets, and product updates, all through a clean REST API with predictable responses and meaningful errors.',
         bullets: ['REST API with OpenAPI spec', 'SDKs for every major language', 'Sub-100ms API responses', 'Idempotent sends with request IDs'],
         preview: 'transactional',
         cta: { label: 'View API docs', href: '/docs' },
@@ -592,7 +592,7 @@ export const whyMailerMineSections = [
     {
         eyebrow: 'Observability',
         title: 'Know exactly what happens after send',
-        description: 'Every email gets a full event timeline — queued, sent, delivered, opened, clicked, bounced. Stream events to your app with webhooks.',
+        description: 'Every email gets a full event timeline: queued, sent, delivered, opened, clicked, bounced. Stream events to your app with webhooks.',
         bullets: ['Real-time webhook events', 'Per-message event timeline', 'Open and click tracking', 'Campaign-level analytics'],
         preview: 'webhooks',
         cta: { label: 'Explore webhooks', href: '/features' },
@@ -646,10 +646,10 @@ export const devExperienceFeatures = [
 export const faqItems = [
     { question: 'Is there a free plan?', answer: 'Yes. The free plan includes 3,000 emails a month with API access, one domain, and the full dashboard. No credit card is required to start, and you only move to a paid plan when you outgrow it.' },
     { question: 'How long does setup take?', answer: 'Most teams are sending in well under ten minutes: add three DNS records to verify your domain, generate an API key, then make a single API call. Delivery events start appearing in the dashboard immediately.' },
-    { question: 'How is MailerMine different from a transactional-only provider?', answer: 'MailerMine combines transactional and marketing email in one platform — API sending, contacts, campaigns, templates, and analytics — so you are not paying for two products, managing two sending reputations, or reconciling two sets of delivery data.' },
+    { question: 'How is MailerMine different from a transactional-only provider?', answer: 'MailerMine combines transactional and marketing email in one platform, covering API sending, contacts, campaigns, templates, and analytics. You are not paying for two products, managing two sending reputations, or reconciling two sets of delivery data.' },
     { question: 'Do you handle bounces and unsubscribes for me?', answer: 'Yes. Bounces and spam complaints are suppressed automatically, and suppression applies across both transactional and marketing sends so a hard bounce in one never gets retried by the other.' },
     { question: 'Can I use my own domain?', answer: 'Absolutely. Verify your domain with SPF, DKIM, and DMARC records through the dashboard. MailerMine handles the DNS guidance and verification flow, and supports multiple sending domains per project.' },
-    { question: 'Do you support marketing email?', answer: 'Yes. MailerMine includes contacts, audiences, segments, campaigns, templates, and analytics — all on the same delivery pipeline as transactional email.' },
+    { question: 'Do you support marketing email?', answer: 'Yes. MailerMine includes contacts, audiences, segments, campaigns, templates, and analytics, all on the same delivery pipeline as transactional email.' },
     { question: 'Do you support SMTP?', answer: 'SMTP relay is on our roadmap. Today you can send via REST API, official SDKs, or the Laravel mail driver.' },
     { question: 'How hard is it to migrate from my current provider?', answer: 'The API will look familiar if you are coming from a modern transactional provider, and we publish migration guides for domains, templates, and webhook endpoints. You can run MailerMine alongside your existing setup and move traffic over gradually rather than cutting over all at once.' },
 ];
